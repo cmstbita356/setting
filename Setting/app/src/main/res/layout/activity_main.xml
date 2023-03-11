@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:text="0"
+        android:textSize="70sp"
+        android:gravity="center"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="COUNT"
+        android:textSize="30sp"/>
+    <Button
+        android:id="@+id/button_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Random Background"
+        android:textSize="30sp"/>
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textSize="30sp"/>
+
+</LinearLayout>
