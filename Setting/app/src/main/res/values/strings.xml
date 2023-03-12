@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Setting</string>
+    <string-array name="background_colors">
+        <item>White</item>
+        <item>Gray</item>
+        <item>Black</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+    </string-array>
+    <string-array name="background_color_values">
+        <item>#ffffff</item>
+        <item>#cccccc</item>
+        <item>#000000</item>
+        <item>#ff0000</item>
+        <item>#00ff00</item>
+        <item>#0000ff</item>
+    </string-array>
+    <string name="default_background_color">#ffffff</string>
 </resources>

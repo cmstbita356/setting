@@ -16,11 +16,10 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private static String sharePrefer_name = "asd";
-    private static int MODE_PRIVATE = 0;
+public class MainActivity extends AppCompatActivity {
     SharedPreferences msharedpreference;
     String mcount;
+    String backgroundColor;
     TextView textView;
 
     @Override
@@ -30,29 +29,28 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         textView = findViewById(R.id.textView);
         msharedpreference = PreferenceManager.getDefaultSharedPreferences(this);
-        mcount = msharedpreference.getString("edit_text_preference", "0");
+
+        mcount = msharedpreference.getString("editText_pref", "0");
         textView.setText(mcount);
+
+        backgroundColor = msharedpreference.getString("backgroundColor_pref", getString(R.string.default_background_color));
+        textView.setBackgroundColor(Color.parseColor(backgroundColor));
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        msharedpreference.registerOnSharedPreferenceChangeListener(this);
+        msharedpreference = PreferenceManager.getDefaultSharedPreferences(this);
+
+        mcount = msharedpreference.getString("editText_pref", "0");
+        textView.setText(mcount);
+
+        backgroundColor = msharedpreference.getString("backgroundColor_pref", getString(R.string.default_background_color));
+        textView.setBackgroundColor(Color.parseColor(backgroundColor));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        msharedpreference.unregisterOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals("edit_text_preference")) {
-            mcount = sharedPreferences.getString("edit_text_preference", "0");
-            textView.setText(mcount);
-        }
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.option_menu, menu);
@@ -66,6 +64,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
             startActivity(intent);
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 }
